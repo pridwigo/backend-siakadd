@@ -20,9 +20,11 @@ class UserSeeder extends Seeder
 
         User::create([
             'name' => 'Dwi',
-            'email'=> 'dwi@gmail.com',
+            'email' => 'dwi@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('dwi123'),
+            'roles' => 'mahasiswa',
+            'phone' =>'082328429319',
         ]);
     }
 }
