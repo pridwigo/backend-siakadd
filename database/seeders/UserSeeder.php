@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'email' => 'dwi@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('dwi123'),
-            'roles' => 'mahasiswa',
+            'roles' => 'admin',
             'phone' =>'082328429319',
         ]);
     }

@@ -20,7 +20,11 @@
             </div>
             <div class="section-body">
 
-
+                <div class="row">
+                    <div class="col-12">
+                        @include('layouts.alert')
+                    </div>
+                </div>
 
                 <div class="row mt-4">
                     <div class="col-12">
@@ -29,7 +33,7 @@
                                 <h4>All Users</h4>
 
                                 <div class="section-header-button">
-                                    <a href="features-post-create.html" class="btn btn-primary">New User</a>
+                                    <a href="{{ route('user.create') }}" class="btn btn-primary">New User</a>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -72,7 +76,23 @@
                                                     {{ $user->created_at }}
                                                 </td>
                                                 <td>
-                                                    Edit
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href="{{ route('user.edit', $user->id) }}"
+                                                            class="btn btn-sm btn-info btn-icon">
+                                                            <i class="fas fa-edit"></i>
+                                                            Edit
+                                                        </a>
+                                                        <form action="{{ route('user.destroy', $user->id) }}" method="POST"
+                                                            class="ml-2">
+                                                            <input type="hidden" name="_method" value="DELETE" />
+                                                            <input type="hidden" name="_token"
+                                                                value="{{ csrf_token() }}" />
+                                                            <button class="btn btn-sm btn-danger btn-icon confirm-delete">
+                                                                <i class="fas fa-times"></i>
+                                                                Delete
+                                                            </button>
+                                                        </form>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach
